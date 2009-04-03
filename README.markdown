@@ -3,11 +3,12 @@
 About `__hg_ps1`
 ==============
 
-`__hg_ps1` is a shell prompt helper for Mercurial repositories, intended to be
-called from your custom prompt string (PS1 in bash and related shells). If your
-working directory is in a repository, it prints the current branch name, and
-appends either a '!' if there are modified files in the working directory, a '?'
-if there are untracked files, or nothing if the repository is clean.
+`__hg_ps1` is a shell prompt helper for Mercurial repositories, similar to
+`__git_ps1`. It is intended to be called from your custom prompt string (PS1 in
+bash and related shells). If your working directory is in a repository, it
+prints the current branch name, and appends either a '!' if there are modified
+files in the working directory, a '?' if there are untracked files, or nothing
+if the repository is clean.
 
 For example:
 
