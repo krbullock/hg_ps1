@@ -28,7 +28,22 @@ Installation
 ============
 
 To install, copy `__hg_ps1` to somewhere in your `PATH` (e.g.
-`/usr/local/bin/`).
+`/usr/local/bin/`). You may need to change the shebang line (the first line of
+the executable) to point to the same version of Python that Mercurial uses. By
+default, the shebang line reads:
+
+    #!/usr/bin/env python
+
+On Mac OS X Leopard, to use `__hg_ps1` with the version of Mercurial from
+<http://mercurial.berkwood.com/>, the shebang line should read as follows:
+
+    #!/System/Library/Frameworks/Python.framework/Versions/2.5/Resources/Python.app/Contents/MacOS/Python
+
+This shouldn't be a concern unless you have multiple Python interpreters
+installed.
+
+Setting your prompt
+-------------------
 
 You can then add it into your prompt string. In bash, for example, you might set
 the following in ~/.bashrc:
