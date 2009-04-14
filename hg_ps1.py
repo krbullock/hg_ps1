@@ -19,26 +19,29 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
 # USA.
 
-import sys
-from mercurial import ui, hg, error
+def main():
+    import sys
+    from mercurial import ui, hg, error
 
-u = ui.ui()  # get a ui object
-try:
-  # get a repository object for the current dir
-  r = hg.repository(u, ".")
-except error.RepoError:
-  # exit if we're not in a repository
-  sys.exit(1)
+    u = ui.ui()  # get a ui object
+    try:
+      # get a repository object for the current dir
+      r = hg.repository(u, ".")
+    except error.RepoError:
+      # exit if we're not in a repository
+      sys.exit(1)
 
-# repository.status(rev1, rev2, match, ignored, clean, unknown)
-# (last three params are flags whether to include files of the given status)
-# returns a tuple of lists of files:
-# (modified, added, removed, deleted, unknown, ignored, clean)
-stat = r.status('.', None, None, False, False, True)
+    # repository.status(rev1, rev2, match, ignored, clean, unknown)
+    # (last three params are flags whether to include files of the given status)
+    # returns a tuple of lists of files:
+    # (modified, added, removed, deleted, unknown, ignored, clean)
+    stat = r.status('.', None, None, False, False, True)
 
-print "on ",
-sys.stdout.write(r.dirstate.branch())
-if True in [bool(l) for l in stat[0:4]]:
-  print "!",
-elif stat[4]:
-  print "?",
+    sys.stdout.write(r.dirstate.branch())
+    if True in [bool(l) for l in stat[0:4]]:
+      print "!",
+    elif stat[4]:
+      print "?",
+
+if __name__ == '__main__':
+    main()
