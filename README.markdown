@@ -28,20 +28,25 @@ prompt is printed; this implementation only needs to run *one* interpreter.
 Installation
 ============
 
-To install, copy `__hg_ps1` to somewhere in your `PATH` (e.g.
-`/usr/local/bin/`). You may need to change the shebang line (the first line of
-the executable) to point to the same version of Python that Mercurial uses. By
-default, the shebang line reads:
+To install, run the setup script:
 
-    #!/usr/bin/env python
+    python setup.py install
 
+This will install the source as an egg in your Python site-packages directory,
+and put `__hg_ps1` into (most likely) `/usr/local/bin`. (Run `python setup.py
+install --help` for more options.)
+
+Be sure to run `setup.py` with the same version of Python that Mercurial uses.
 On Mac OS X Leopard, to use `__hg_ps1` with the version of Mercurial from
-<http://mercurial.berkwood.com/>, the shebang line should read as follows:
+<http://mercurial.berkwood.com/>, use `/usr/bin/python`, as follows:
 
-    #!/System/Library/Frameworks/Python.framework/Versions/2.5/Resources/Python.app/Contents/MacOS/Python
+    $ /usr/bin/python setup.py [command]
 
 This shouldn't be a concern unless you have multiple Python interpreters
-installed.
+installed (e.g. through Fink or MacPorts).
+
+Thanks to Jannis Leidel <jannis@leidel.info> for creating the setup script and
+reworking the code into module form.
 
 Setting your prompt
 -------------------
