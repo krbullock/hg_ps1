@@ -45,8 +45,8 @@ On Mac OS X Leopard, to use `__hg_ps1` with the version of Mercurial from
 This shouldn't be a concern unless you have multiple Python interpreters
 installed (e.g. through Fink or MacPorts).
 
-Thanks to Jannis Leidel <jannis@leidel.info> for creating the setup script and
-reworking the code into module form.
+Thanks to Jannis Leidel &lt;<jannis@leidel.info>&gt; for creating the setup
+script and reworking the code into module form.
 
 Setting your prompt
 -------------------
@@ -63,3 +63,10 @@ replace it. For example:
     # ~/.bashrc
     PS1='\u@\h \w\$ '
     PS1='$(__hg_ps1)\n'$PS1
+
+
+Local branches
+==============
+
+zerok has created a fork of `__hg_ps1` that provides support for local branches.
+His repository is here: <http://bitbucket.org/zerok/hg_ps1-lbranch/>.
