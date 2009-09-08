@@ -3,3 +3,4 @@ syntax: glob
 build
 dist
 hg_ps1.egg-info
+*.pyc
