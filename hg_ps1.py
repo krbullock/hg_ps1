@@ -19,14 +19,27 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
 # USA.
 
+import os
+
+# Nabbed from mercurial/dispatch.py
+def _findrepo(p):
+    while not os.path.isdir(os.path.join(p, ".hg")):
+        oldp, p = p, os.path.dirname(p)
+        if p == oldp:
+            return None
+
+    return p
+
+
 def main():
     import sys
     from mercurial import ui, hg, error
 
     u = ui.ui()  # get a ui object
+    path = _findrepo(os.getcwd()) or ""
     try:
       # get a repository object for the current dir
-      r = hg.repository(u, ".")
+      r = hg.repository(u, path)
     except error.RepoError:
       # exit if we're not in a repository
       sys.exit(1)
